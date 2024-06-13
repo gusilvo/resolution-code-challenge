@@ -2,12 +2,14 @@ from datetime import timedelta
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
+import subprocess
 
 
 # Define the function to be called by PythonOperator
 def run_step(step):
-    import subprocess
+    logging.info(f'Starting step execution: {step}')
     subprocess.run(['python', f'{step}'])
+    logging.info(f'Finished step execution: {step}')
 
 
 # Default arguments for the DAG
@@ -45,4 +47,3 @@ Step2 = PythonOperator(
 
 # DEFINE DEPENDECY
 Step1 >> Step2
-
