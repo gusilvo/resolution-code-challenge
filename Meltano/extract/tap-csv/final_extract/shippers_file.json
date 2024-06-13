@@ -1,7 +1,7 @@
 [
     {
         "entity": "shippers",
-        "path": "C:\\Users\\gustavo\\Desktop\\Meltano\\my-project\\output\\tap-postgres",
+        "path": "\\output\\data\\tap-postgres",
         "keys": ["shipper_id"]
     }
 ]
