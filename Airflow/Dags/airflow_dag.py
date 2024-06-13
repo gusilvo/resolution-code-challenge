@@ -44,5 +44,5 @@ Step2 = PythonOperator(
 )
 
 # DEFINE DEPENDECY
-task1 >> task2
+Step1 >> Step2
 
