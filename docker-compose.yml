@@ -32,6 +32,6 @@ services:
       - db
       - new_db
     volumes:
-      - ./airflow/dags:/usr/local/airflow/Dags
+      - ./Airflow/dags:/usr/local/airflow/Dags
     ports:
       - "8080:8080"
