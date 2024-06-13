@@ -101,7 +101,7 @@ postgres_tables = [
 ]
 
 # Dictionary for tap-csv files definition path
-csv_table = {'csv_files_definition_path': rf'{meltano_directory}\extract\tap-csv\first-extract\orders_details_files.json',
+csv_table = {'csv_files_definition_path': rf'{meltano_directory}\extract\tap-csv\first-extract\order_details_files.json',
              'base_output_path': r'output\data\tap-csv'}
 
 
