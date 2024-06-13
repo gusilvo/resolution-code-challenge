@@ -12,3 +12,26 @@ services:
       - ./data/northwind.sql:/docker-entrypoint-initdb.d/northwind.sql
     ports:
       - 5432:5432
+      
+  new_db:
+    image: postgres:12
+    environment:
+      POSTGRES_DB: new_northwind
+      POSTGRES_USER: new_northwind_user
+      POSTGRES_PASSWORD: new_thewindisblowing
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+
+  airflow:
+    image: puckel/docker-airflow:1.10.9
+    container_name: airflow-container
+    restart: always
+    depends_on:
+      - db
+      - new_db
+    volumes:
+      - ./airflow/dags:/usr/local/airflow/Dags
+    ports:
+      - "8080:8080"
