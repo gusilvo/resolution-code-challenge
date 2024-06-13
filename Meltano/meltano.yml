@@ -16,14 +16,11 @@ plugins:
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
   loaders:
-  - name: target-jsonl
-    variant: andyh1203
-    pip_url: target-jsonl
   - name: target-postgres
     variant: meltanolabs
     pip_url: meltanolabs-target-postgres
     config:
-      sqlalchemy_url: postgresql:[username]:[password]@localhost:5432/new_northwind
+      sqlalchemy_url: postgresql:northwind_user:thewindisblowing@localhost:5432/new_northwind
       default_target_schema: public
       add_record_metadata: false
       activate_version: false
