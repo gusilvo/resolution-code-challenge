@@ -3,14 +3,13 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils.dates import days_ago
 import subprocess
-
+import logging
 
 # Define the function to be called by PythonOperator
 def run_step(step):
     logging.info(f'Starting step execution: {step}')
     subprocess.run(['python', f'{step}'])
     logging.info(f'Finished step execution: {step}')
-
 
 # Default arguments for the DAG
 default_args = {
@@ -33,7 +32,7 @@ dag = DAG(
 Step1 = PythonOperator(
     task_id='Extract_and_Load_Step1',
     python_callable=run_step,
-    op_args=[r'C:\Users\User\Steps\Step1.py'],
+    op_args=[r'path-to\Airflow\Steps_and_Others\Step1.py'],
     dag=dag,
 )
 
@@ -41,9 +40,17 @@ Step1 = PythonOperator(
 Step2 = PythonOperator(
     task_id='Extract_and_Load_Step2',
     python_callable=run_step,
-    op_args=[r'C:\Users\User\Steps\Step2.py'],
+    op_args=[r'path-to\Airflow\Steps_and_Others\Step2.py'],
     dag=dag,
 )
 
-# DEFINE DEPENDECY
-Step1 >> Step2
+# Define the Step3 using PythonOperator
+Step3 = PythonOperator(
+    task_id='Extract_and_Load_Step3',
+    python_callable=run_step,
+    op_args=[r'path-to\Airflow\Steps_and_Others\Step3.py'],
+    dag=dag,
+)
+
+# DEFINE DEPENDENCY
+Step1 >> Step2 >> Step3
