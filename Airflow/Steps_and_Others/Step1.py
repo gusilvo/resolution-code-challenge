@@ -54,57 +54,58 @@ def extract_and_load_csv(table, meltano_directory):
     # Run the pipeline tap-postgres target-csv
     subprocess.run(['meltano', 'run', 'tap-csv', 'target-csv'])
 
+# Define the working directory
+meltano_directory = r'C:\Users\User\Meltano\'
 
 # Dictionary for tap-postgres catalogs
 postgres_tables = [
     {'table_name': 'categories',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-categories.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-categories.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'customer_customer_demo',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-customer_customer_demo.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-customer_customer_demo.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'customer_demographics',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-customer_demographics.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-customer_demographics.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'customers',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-customers.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-customers.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'employee_territories',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-employee_territories.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-employee_territories.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'employees',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-employees.catalog.json',
+     'catalog_path': rf'{meltano_directory}\my-project\extract\tap-postgres\public-employees.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'orders',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-orders.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-orders.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'products',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-products.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-products.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'region',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-region.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-region.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'shippers',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-shippers.catalog.json',
+     'catalog_path': rf'{meltano_directory}\my-project\extract\tap-postgres\public-shippers.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'suppliers',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-suppliers.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-suppliers.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'territories',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-territories.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-territories.catalog.json',
      'base_output_path': r'output/data/tap-postgres'},
     {'table_name': 'us_states',
-     'catalog_path': r'C:\Users\User\Meltano\my-project\extract\tap-postgres\public-us_states.catalog.json',
+     'catalog_path': rf'{meltano_directory}\extract\tap-postgres\public-us_states.catalog.json',
      'base_output_path': r'output/data/tap-postgres'}
 ]
 
 # Dictionary for tap-csv files definition path
-csv_table = {'csv_files_definition_path': r'C:\Users\User\Meltano\my-project\extract\tap-csv\first-extract\orders_details_files.json',
+csv_table = {'csv_files_definition_path': rf'{meltano_directory}\extract\tap-csv\first-extract\orders_details_files.json',
              'base_output_path': r'output\data\tap-csv'}
 
 
 # Call the extract_and_load functions with the defined tables and the specific working directory
 if __name__ == "__main__":
-    meltano_directory = r'C:\Users\User\Meltano\my-project'
     extract_and_load_postgres(postgres_tables, meltano_directory)
     extract_and_load_csv(csv_table, meltano_directory)
