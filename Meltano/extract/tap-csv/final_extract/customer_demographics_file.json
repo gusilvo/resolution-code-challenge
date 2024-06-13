@@ -1,7 +1,7 @@
 [
     {
         "entity": "customer_demographics",
-        "path": "C:\\Users\\gustavo\\Desktop\\Meltano\\my-project\\output\\tap-postgres",
+        "path": "\\output\\data\\tap-postgres",
         "keys": ["customer_id"]
     }
 ]
