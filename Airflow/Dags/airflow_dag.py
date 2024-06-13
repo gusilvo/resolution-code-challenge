@@ -43,6 +43,6 @@ Step2 = PythonOperator(
     dag=dag,
 )
 
-# DEFINES DEPENDECY
+# DEFINE DEPENDECY
 task1 >> task2
 
