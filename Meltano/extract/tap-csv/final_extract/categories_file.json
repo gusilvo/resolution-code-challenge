@@ -1,7 +1,7 @@
 [
     {
         "entity": "categories",
-        "path": "C:\\Users\\gustavo\\Desktop\\Meltano\\my-project\\output\\tap-postgres",
+        "path": "\\output\\data\\tap-postgres",
         "keys": ["category_id"]
     }
 ]
