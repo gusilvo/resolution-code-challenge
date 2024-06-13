@@ -1,0 +1,7 @@
+[
+    {
+        "entity": "region",
+        "path": "C:\\Users\\gustavo\\Desktop\\Meltano\\my-project\\output\\tap-postgres",
+        "keys": ["region_id"]
+    }
+]

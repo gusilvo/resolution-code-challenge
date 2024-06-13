@@ -1,0 +1,9 @@
+[
+    {
+        "entity": "orders_detail",
+        "path": "C:\\Users\\gustavo\\Desktop\\Meltano\\my-project\\extract",
+        "keys": [
+            "order_id"
+        ]
+    }
+]

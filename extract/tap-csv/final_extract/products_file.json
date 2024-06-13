@@ -1,0 +1,7 @@
+[
+    {
+        "entity": "products",
+        "path": "C:\\Users\\gustavo\\Desktop\\Meltano\\my-project\\output\\tap-postgres",
+        "keys": ["product_id"]
+    }
+]

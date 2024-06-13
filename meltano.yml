@@ -1,0 +1,32 @@
+version: 1
+default_environment: dev
+project_id: fa65e3be-52d3-448c-b79e-c6c01af7915d
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-postgres
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
+    config:
+      sqlalchemy_url: postgresql:[username]:[password]@localhost:5432/northwind
+  - name: tap-csv
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-target-postgres
+    config:
+      sqlalchemy_url: postgresql:[username]:[password]@localhost:5432/new_northwind
+      default_target_schema: public
+      add_record_metadata: false
+      activate_version: false
+  - name: target-csv
+    variant: hotgluexyz
+    pip_url: git+https://github.com/hotgluexyz/target-csv.git
