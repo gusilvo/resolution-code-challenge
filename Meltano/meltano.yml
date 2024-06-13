@@ -11,7 +11,7 @@ plugins:
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/tap-postgres.git
     config:
-      sqlalchemy_url: postgresql:[username]:[password]@localhost:5432/northwind
+      sqlalchemy_url: postgresql:northwind_user:thewindisblowing@localhost:5432/new_northwind
   - name: tap-csv
     variant: meltanolabs
     pip_url: git+https://github.com/MeltanoLabs/tap-csv.git
@@ -20,7 +20,7 @@ plugins:
     variant: meltanolabs
     pip_url: meltanolabs-target-postgres
     config:
-      sqlalchemy_url: postgresql:northwind_user:thewindisblowing@localhost:5432/new_northwind
+      sqlalchemy_url: postgresql:new_northwind_user:new_thewindisblowing@localhost:5432/new_northwind
       default_target_schema: public
       add_record_metadata: false
       activate_version: false
