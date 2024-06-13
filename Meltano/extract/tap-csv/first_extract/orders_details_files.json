@@ -1,7 +1,7 @@
 [
     {
         "entity": "orders_detail",
-        "path": "C:\\Users\\gustavo\\Desktop\\Meltano\\my-project\\extract",
+        "path": "data/order_details.csv",
         "keys": [
             "order_id"
         ]
