@@ -3,10 +3,7 @@ import pandas as pd
 from datetime import datetime
 
 def extract_and_save_orders(working_directory):
-    """
-    This function connects to a PostgreSQL database, extracts data from the 'orders' table,
-    and saves the data to both a CSV file and a JSON file.
-    """
+
     # Database connection parameters
     db_params = {
         'dbname': 'new_northwind',
@@ -24,8 +21,12 @@ def extract_and_save_orders(working_directory):
         print(f"Error connecting to database: {e}")
         return
 
-    # SQL query to extract data from the 'orders' table
-    orders_query = "SELECT * FROM orders"
+    # SQL query to join 'orders' and 'order_details' tables
+    orders_query = """
+    SELECT o.*, od.*
+    FROM orders o
+    JOIN order_details od ON o.order_id = od.order_id
+    """
 
     # Load data from 'orders' table into a pandas DataFrame
     try:
